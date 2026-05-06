@@ -2,25 +2,25 @@ package ozonbarcode
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.unit.dp
 
 /**
  * Actual implementation for Wasm JS (Browser) platform.
  * Renders Code128 barcode using manual Canvas drawing.
  */
 @Composable
-actual fun Barcode(text: String) {
+actual fun Barcode(
+    modifier: Modifier,
+    text: String
+) {
     Canvas(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(100.dp),
+        modifier = modifier
+            .fillMaxWidth(),
         onDraw = {
             drawCode128Barcode(text)
         }

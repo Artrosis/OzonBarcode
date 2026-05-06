@@ -61,6 +61,8 @@ fun App(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Surface(
+                    modifier = Modifier
+                        .fillMaxWidth(0.8f),
                     shape = RoundedCornerShape(corner = CornerSize(16.dp)),
                     border = BorderStroke(width = 1.dp, color = Color.Gray),
                     color = MaterialTheme.colorScheme.surfaceContainer,
@@ -73,7 +75,13 @@ fun App(
                             style = MaterialTheme.typography.titleMedium,
                             modifier = Modifier.padding(bottom = 8.dp)
                         )
-                        Barcode(convertedBarcode)
+                        Barcode(
+                            modifier = Modifier
+                                .sizeIn(maxWidth = 700.dp)
+                                .height(300.dp)
+                                .padding(16.dp)
+                                    ,
+                            convertedBarcode)
                         Text(
                             text = convertedBarcode,
                             style = MaterialTheme.typography.titleMedium,
