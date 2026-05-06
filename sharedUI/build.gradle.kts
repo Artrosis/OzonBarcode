@@ -48,7 +48,6 @@ kotlin {
         wasmJsMain.dependencies {
         }
     }
-
 }
 
 dependencies {

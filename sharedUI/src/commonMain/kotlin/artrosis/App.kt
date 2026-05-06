@@ -20,6 +20,7 @@ import org.jetbrains.compose.resources.Font
 import ozonbarcode.Barcode
 import ozonbarcode.sharedui.generated.resources.IndieFlower_Regular
 import ozonbarcode.sharedui.generated.resources.Res
+import ozonbarcode.SaveBarcode
 
 @Preview
 @Composable
@@ -56,27 +57,31 @@ fun App(
 
         if (!convertedBarcode.isEmpty())
         {
-            Surface(
-                shape = RoundedCornerShape(corner = CornerSize(16.dp)),
-                border = BorderStroke(width = 1.dp, color = Color.Gray),
-                color = MaterialTheme.colorScheme.surfaceContainer,
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
+                Surface(
+                    shape = RoundedCornerShape(corner = CornerSize(16.dp)),
+                    border = BorderStroke(width = 1.dp, color = Color.Gray),
+                    color = MaterialTheme.colorScheme.surfaceContainer,
                 ) {
-                    Text(
-                        text = "Штрих-код:",
-                        style = MaterialTheme.typography.titleMedium,
-                        modifier = Modifier.padding(bottom = 8.dp)
-                    )
-                    Barcode(convertedBarcode)
-                    Text(
-                        text = convertedBarcode,
-                        style = MaterialTheme.typography.titleMedium,
-                        modifier = Modifier.padding(bottom = 8.dp)
-                    )
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                    ) {
+                        Text(
+                            text = "Штрих-код:",
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier.padding(bottom = 8.dp)
+                        )
+                        Barcode(convertedBarcode)
+                        Text(
+                            text = convertedBarcode,
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier.padding(bottom = 8.dp)
+                        )
+                    }
                 }
+                SaveBarcode(convertedBarcode)
             }
         }
     }

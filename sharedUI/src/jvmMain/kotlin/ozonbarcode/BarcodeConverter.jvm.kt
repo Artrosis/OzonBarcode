@@ -28,4 +28,3 @@ actual fun Barcode(text: String) {
             .height(100.dp)
     )
 }
-
