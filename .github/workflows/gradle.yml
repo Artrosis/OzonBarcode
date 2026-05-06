@@ -39,7 +39,7 @@ jobs:
       id: deployment
       uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
       with:
-        path: composeApp/build/dist/wasmJs/productionExecutable/
+        path: webApp/build/dist/wasmJs/productionExecutable/
 
   # Deploy job
   deploy:
