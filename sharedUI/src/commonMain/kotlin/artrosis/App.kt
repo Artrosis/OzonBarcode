@@ -21,6 +21,7 @@ import ozonbarcode.Barcode
 import ozonbarcode.sharedui.generated.resources.IndieFlower_Regular
 import ozonbarcode.sharedui.generated.resources.Res
 import ozonbarcode.SaveBarcode
+import ozonbarcode.hasCaption
 
 @Preview
 @Composable
@@ -82,11 +83,13 @@ fun App(
                                 .padding(16.dp)
                                     ,
                             convertedBarcode)
-                        Text(
-                            text = convertedBarcode,
-                            style = MaterialTheme.typography.titleMedium,
-                            modifier = Modifier.padding(bottom = 8.dp)
-                        )
+                        if (hasCaption()){
+                            Text(
+                                text = convertedBarcode,
+                                style = MaterialTheme.typography.titleMedium,
+                                modifier = Modifier.padding(bottom = 8.dp)
+                            )
+                        }
                     }
                 }
                 SaveBarcode(convertedBarcode)
