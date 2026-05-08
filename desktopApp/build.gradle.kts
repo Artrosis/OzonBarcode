@@ -14,8 +14,11 @@ compose.desktop {
     application {
         mainClass = "MainKt"
 
+        buildTypes.release.proguard {
+            configurationFiles.from("proguard-rules.pro")
+        }
+
         nativeDistributions {
-            includeAllModules
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "OzonBarcode"
             packageVersion = "1.0.0"
